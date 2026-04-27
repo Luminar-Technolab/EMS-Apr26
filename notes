@@ -1,0 +1,265 @@
+
+    ---------HTML : HYPER TEXT MARKUP LANGUAGE--------
+
+    1. Markup Language : Set of rules used to display contents in a document
+    2. HTML : used to create webpage
+    3. HTML 5 : latest version
+    4. HTML document : create file with html extension
+        - It consist of tags ( <tag-name> )
+        - HTML elements : starting-tag, content , ending-tag
+        - Basic structure of html 
+            <html>
+                <head></head>
+                <body></body>
+            </html>
+    5. HTML Attributes : properties of html tag, 
+    6. Basic Tags
+        - Heading : h1-h6 tag
+        - Paragraph : p tag
+        - Images : img tag
+        - Form : form tag
+        - Inputs : input tag with type (text,number,button,date,checkbox,radio)
+        - Button : button
+    7. Semantic tags : Improve SEO (Search Engine Optimisation) friendly website
+        - example : header , nav , main , section, article, aside, footer etc.
+
+    -----CSS : CASCADING STYLE SHEETS-----
+
+    - Used to style html elements
+    - Applying CSS into HTML elements
+        - Inline CSS : add css code in html elements , using style attribute, Syntax : property:value;
+        - Internal CSS : using style tag add style to html document 
+        - Extenal CSS : using external css file to apply style to html document
+    - CSS Syntax : 
+        selector {
+            property:value;
+        }
+    - CSS Selectors : 
+        - Universal Selector (*) : used to select all tags
+        - Element selector : using tag name
+        - Id selector : using id attribute of html element
+        - Class selector : using class attribute of a html element
+    - Box model : Every element is placed inside a box in browser
+        - Every Element = Content + padding + Border + Margin
+        - Padding : space between content and Border
+        - Margin : Outer Space of Border
+    - Color - (name, hex code, rgb method)
+    - Units - (px, %, em, rem)
+    - Flexbox : used to display contents in row & column
+        - Flex Container : display set as Flex
+            - Justify content
+            - Align items
+        - Flex Items : 
+    - Position : 
+        - Static 
+        - Fixed
+        - Absolute
+        - Relative
+        - Sticky
+    - CSS Grid : is a powerful 2-dimensional layout system used to create rows and columns easily.
+        - properties : Parent tag
+            - display : grid
+    - A responsive website automatically adjusts its layout, images, text, and elements for different screen sizes: ✅ Mobile, ✅ Tablet, ✅ Laptop, ✅ Desktop
+        - Different ways to make Responsive Website
+            1. Add Viewport Meta Tag : This tells browser to match screen width.
+            2. Use Flexible Widths : use unit as percent
+            3. CSS Flexbox : use flex-wrap
+            4. CSS Grid : use column width with auto-fit & minmax
+            5. Using media queries in css
+    - Media Queries : @media keyword, it can identify screen width, height, orientation & resolution
+        - Screen Breakpoints
+                /* Mobile */
+                @media (max-width: 576px)
+
+            /* Tablet */ 577 - 768px
+            @media (max-width: 768px)
+
+            /* Laptop */ 769 -992px
+            @media (max-width: 992px)
+
+            /* Desktop */ 
+            @media (min-width: 1200px)
+
+            - Syntax : @media  (media-feature: value) and (media-feature: value) {
+        /* CSS rules to apply */
+        }
+
+        -----BOOTSTRAP : CSS FRAMEWORK-----
+
+        1. Bootstrap is a popular front-end framework used to build responsive and mobile-friendly websites quickly.
+        2. They uses , predefined class name, we can use the class name inorder to style webpage
+
+        -----TAILWINDCSS : CSS FRAMEWORK-----
+
+        1. To Add tailwind into a html page use its cdn script into head tag
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+
+        -----GIT & GITHUB-----
+
+        1. Git is a Version Control System (VCS) used to track changes in code and collaborate with developers.
+        2. Git Commands
+            - git init : to create git inside a folder
+            - git status : to check status of git 
+            - git add . : used to add all untracked files into git
+            - git commit -m "message" : used to save all added files into git
+            - git remote origin url : used to link github repository with git
+            - git push origin master : used to push all codes to github
+        3. Hoisting page using Github : Inside github repository choose --> settings --> pages --> chhose branch as master --> save --> reload the page
+
+        -----JAVASCRIPT-----
+
+        1. Node.js is an open-source JavaScript runtime environment that allows you to run JavaScript outside the browser.
+        2. Display contents : console.log()
+        3. Variable : Used to store data
+            - Variable created using :
+                - var : ex: var variable-name = value
+                - let : ex : let variable-name = value
+                - const : ex: const variable-name = value
+        4. Data types : define what kind of value a variable can store in JavaScript.
+            - Two Main Categories
+                1. Primitive Data Types - These store single values. ex : String, Number, Boolean, Undefined, Null
+                2. Non-Primitive (Reference) Data Types - These store collections / references, ex: Object, Array, Function, Date
+        5. Operators : 
+            - Assignment Operators : =
+            - Arithmetic Operators : + - % / * **
+            - Relational Operators : > < <= >= == != ===
+            - Logical Operators : && || !
+            - Increment / Decrement Operators : ++ --
+            - Shorthand Operators : += -= *= 
+                a = a+10   similar to      a+=10
+        6. Control structures : Used to take decision based on condition
+            - if statements : Syntax - if(condition){ it executes when condition become true  }
+            - if-else statements : : Syntax - if(condition){ it executes when condition become true  }else{
+                it executes when condition become false
+            }
+            - else if ladder statements : multiple condition
+        7. Looping statements : Used to repeat a task multiple times
+            - while loop
+            - for loop : Syntax - for(variable initialisation;condition;change variable){
+                it executes when condition become true
+            }
+        8. Function : Used to perform specific task
+            - Function Definition
+                function function-name(arg1...){
+                    steps to perform task
+                    return statement used to return value to function call
+                }
+            - Function Call
+                function-name(arg...)
+        9. Arrays : used to store multiple values in a single variable
+            - create Array : var/const/let variable-name = [item1,item2]
+            - length : used to get total array items
+            - index : used to get each item of array, it value starts from 0, usage : array-name[index]
+            - for-of loop : used to get each array item one by one
+                - Syntax : for(let variable-name of array-name){
+                    task tobe repeated
+                }
+            - Array Methods : Syntax- array-name.method()
+                - push() : Insert an item 
+                - pop() : Remove last item from an array
+                - map() : used to fetch each item of an array
+                - filter(): used to check condition in an array
+                - reduce(): used to find sum,largest/smallest values from an array
+        10. Object : used to store multiple data as key-value pair in a single variable
+            - create object : var/const/let variable-name = {key1:value1,key2:value2}, key must unique
+            - Use key : to get value of an object
+                - Syntax : object-name['key'] / object-name.key
+        11. ES6 features of JS 
+            - let and const : 
+            - Arrow Functions : const function-name = (arg1,arg2..)=>{ function body } , Used to define function , Instead normal function Definition we can use Arrow function
+            - Template Literals : Use backticks for dynamic strings.
+                const name = "Nevin";
+                console.log(`Hello ${name}`);
+            - Spread/Rest Operators
+                - The spread operator uses three dots ... to expand iterable values like arrays, strings, or objects into individual elements/properties.
+                - The rest operator also uses three dots ..., but it does the opposite of spread. 
+                    👉 Rest = Collect remaining values into one array/object
+            - Destructuring : It means extracting values from arrays or objects and assigning them to variables
+        12. Callback function : A callback function is a function passed as an argument to another function, and it is executed later.
+            - Syntax : function-name(function Definition)
+        13. DOM : Document Object Model
+            - It is a programming interface that represents an HTML document as a tree of objects, so JavaScript can access and change webpage content, structure, and styles dynamically.
+            - Use js in html document
+                - Internal JS : using script tag we can add js code in html document
+                - External JS : using external js to add js code , to link js with html using script tag
+            - DOM Methods : used to access html elements by js
+                - document.getElementByTag('tag')
+                - document.getElementById('id') / simply use id inside js to access html element
+                - document.getElementByClassName('class')
+                - document.querySelectorAll('tag/#id/.className')
+            - Events : actions perfromed by user
+                - events are actions that happen in the browser and can be detected using JavaScript.
+                - Common Webpage Events : Mouse Events, Keyboard Events, Form Events, Window / Browser Events
+                - Event handling in html page : User Action → Event Occurs → JavaScript Responds
+        14. Function Execution Model in JavaScript 
+            - Synchronus function  : Executed using blocking model, first line executed only after next line executed
+            - Asynchronous function : Executed using non-blocking model, it won't wait to complete execution of first function
+                - Callback function, Nesting of callback leads to callback hell
+                - Promise : A Promise is an object representing future success or failure of an async task.
+                    - Promise States: Pending, Resolved (Fulfilled), Rejected
+                    - To get resolved value use then method, to get reject value use catch method
+                - Async/Await : use async keyword to a function, inside an Asynchronous function you can use await keyword
+        15. API : Application Programming Interface
+            - API is a way for two software systems to communicate with each other.
+            - HTTP (Hyper text Transfer protocol) : HTTP is the protocol used for communication between a client (browser/app) and a server on the web.
+                - HTTP 2 parts
+                    - HTTP Header : 
+                    - HTTP Body : share data
+            - JSON : JavaScript Object Notation
+                - JSON is a lightweight format used to store and exchange data in internet.
+                - JSON is similar to Object, { "key":value }
+            - URL : Uniform Resource Locator
+                - ex: https://jsonplaceholder.typicode.com/users/1
+                - Parts :
+                    - Base url : https://jsonplaceholder.typicode.com
+                    - URI (Uniform Resource Identifier) : users
+                    - parameters : 1
+        16. API using JavaScript
+            - Fetch method : return promise
+        
+
+        -----REACT-----
+
+        1. React is a JavaScript library used to build user interfaces (UI) for websites and web applications.
+        2. Why React is Popular
+            - Component Based : React breaks UI into small reusable parts called components.
+            - Fast Performance : React uses 'Virtual DOM' to update only changed parts of the page.
+            - Reusable Code : Write once, use multiple times.
+            - Easy to Manage Dynamic Data
+        3. Important Concepts in React
+            - JSX (JavaScript XML) : HTML inside JavaScript.
+                - General Rules of JSX
+                    - Every tag should be in a single container tag (div,section,article,main etc...) / react fragment (nameless tag is known as react fragment : <></>)
+                    - Every tag should has closing tag, self closing tag (<tag/>)
+                    - It uses camelcase inside jsx code (camelCase)
+                    - We can directly give Js code inside jsx using {} braces, ex: {js code}
+                    - Instead of attribute like 'class' and 'for' jsx uses 'className' , 'htmlFor'
+            - Props : Used to pass data from parent to child Component.
+            - State : Used to store changing data.
+        4. Project Creation in react 
+            - Using vite package : npm create vite@latest
+            - To run react app : npm run dev 
+        5. Component : used to design UI, reusable piece of code, They are arranged in tree structure, Root Component name is always 'App' Component
+            - Component Creation
+                - Create jsx file with filename starts with capital letter
+                - Inside jsx file, create a function inside the function it should has return statement, inside return jsx codes should be given. Function should export so that other file can access 
+        6. Path setup for components
+            - Install react-router-dom : npm i react-router-dom
+            - Entire app should be in BrowswerRouter Component
+            - Set up path use Routes & Route components in App Component
+
+        -------EMS PROJECT OVERVIEW-------
+
+        EMPLOYEE MANAGEMENT SYSTEM
+
+        TYPES USERS
+        - ADMIN (employees add, edit, list & delete)
+        - USER ( display user details)
+
+        PAGES - components
+        - Home page : http://localhost:5173/
+        - Login Page (admin & user) : http://localhost:5173/login
+        - user details page  : http://localhost:5173/user
+        - Dashboard page : http://localhost:5173/admin
+        - manage page: http://localhost:5173/manage
