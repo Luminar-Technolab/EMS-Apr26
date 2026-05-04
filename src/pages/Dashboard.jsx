@@ -1,7 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { deleteUsersAPI, getAllUsersAPI } from '../services/allAPI';
 
 function Dashboard() {
+
+
+  const [allUsers,setAllUsers] = useState([])
+  console.log(allUsers);
+
+  useEffect(()=>{
+    getUsers()
+  },[])
+
+  const getUsers = async ()=>{
+    try{
+      const result = await getAllUsersAPI()
+      // console.log(result);
+      if(result.status==200){
+        setAllUsers(result.data)
+      }
+    }catch(err){
+      console.log(err);      
+    }
+  }
+
+  const removeUser = async (id)=>{
+    const result = await deleteUsersAPI(id)
+    getUsers()
+  }
+
+
   return (
     <div>
       {/* title */}
@@ -24,18 +52,22 @@ function Dashboard() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>username</td>
-              <td>email</td>
-              <td>salary</td>
-              <td>
-                <div className="d-flex">
-                  <Link to={'/id/edit'} className='btn text-warning'> <i className='fa-solid fa-edit'></i> </Link>
-                  <button className="btn text-danger"> <i className='fa-solid fa-trash'></i> </button>
-                </div>
-              </td>
-            </tr>
+            {
+              allUsers?.map(user=>(
+                <tr key={user?._id}>
+                  <td>{user?._id}</td>
+                  <td>{user?.username}</td>
+                  <td>{user?.email}</td>
+                  <td>{user?.salary}</td>
+                  <td>
+                    <div className="d-flex">
+                      <Link to={`/${user?._id}/edit`} className='btn text-warning'> <i className='fa-solid fa-edit'></i> </Link>
+                      <button onClick={()=>removeUser(user?._id)} className="btn text-danger"> <i className='fa-solid fa-trash'></i> </button>
+                    </div>
+                  </td>
+                </tr>
+              ))
+            }
           </tbody>
         </table>
       </div>

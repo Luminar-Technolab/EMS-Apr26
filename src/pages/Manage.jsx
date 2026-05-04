@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Form from 'react-bootstrap/Form';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { addUsersAPI } from '../services/allAPI';
 
 function Manage() {
   // hooks : name will starts with 'use' keyword
@@ -10,8 +11,29 @@ function Manage() {
   const [userData,setUserData] = useState({
     username:"",email:"",salary:""
   })
+  const navigate = useNavigate()
 
   console.log(userData);
+
+  const addUser = async ()=>{
+    const {username,email,salary} = userData
+    if(username && email && salary){
+      try{
+        const result = await addUsersAPI(userData)
+         console.log(result);
+         alert("User added successfully!!!")
+        navigate('/admin')
+      }catch(err){
+        console.log(err);
+        if(err.response.status==409){
+          alert(err.response.data);
+        }
+        console.log("Something went wrong...");        
+      }
+    }else{
+      alert("Please fill the form completely!!!")
+    }
+  }
   
   return (
     <div className='container text-center w-50 my-5'>
@@ -31,7 +53,7 @@ function Manage() {
             id ?
             <button className="btn btn-info"> EDIT USER</button>
             :
-            <button className="btn btn-info">ADD  USER</button>
+            <button onClick={addUser} className="btn btn-info">ADD  USER</button>
           }
           <button className="btn btn-warning ms-5">RESET</button>
         </div>
