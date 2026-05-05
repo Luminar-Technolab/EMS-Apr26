@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const serverURL = "http://localhost:3000"
+const serverURL = "https://ems-server-apr26.onrender.com"
 
 //get all users api : called by Dashboard component when it opens
 export const getAllUsersAPI = async ()=>{
@@ -20,4 +20,9 @@ export const editUsersAPI = async (userID,userData)=>{
 //delete users api : called by Dashboard component when delete btn clicked
 export const deleteUsersAPI = async (userID)=>{
     return await axios.delete(`${serverURL}/users/${userID}`)
+}
+
+//view user api : called by Manage component when it opens
+export const viewUserAPI = async (id)=>{
+    return await axios.get(`${serverURL}/users/${id}`)
 }

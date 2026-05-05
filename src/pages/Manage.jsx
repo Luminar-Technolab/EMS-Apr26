@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Form from 'react-bootstrap/Form';
 import { useNavigate, useParams } from 'react-router-dom';
-import { addUsersAPI } from '../services/allAPI';
+import { addUsersAPI, editUsersAPI, viewUserAPI } from '../services/allAPI';
 
 function Manage() {
   // hooks : name will starts with 'use' keyword
@@ -14,6 +14,10 @@ function Manage() {
   const navigate = useNavigate()
 
   console.log(userData);
+
+  useEffect(()=>{
+    id && getUser()
+  },[])
 
   const addUser = async ()=>{
     const {username,email,salary} = userData
@@ -31,10 +35,37 @@ function Manage() {
         console.log("Something went wrong...");        
       }
     }else{
-      alert("Please fill the form completely!!!")
+       alert("Please fill the form completely!!!")
     }
   }
   
+  const editUser = async ()=>{
+    const {username,email,salary} = userData
+    if(username && email && salary){
+      try{
+        const result = await editUsersAPI(id,userData)
+         console.log(result);
+         alert("User updated successfully!!!")
+        navigate('/admin')
+      }catch(err){
+        console.log(err);
+        console.log("Something went wrong...");        
+      }
+    }else{
+       alert("Please fill the form completely!!!")
+    }
+  }
+
+  const getUser = async ()=>{
+    try{
+      const result = await viewUserAPI(id)
+      setUserData(result.data)
+
+    }catch(err){
+      console.log(err);      
+    }
+  }
+
   return (
     <div className='container text-center w-50 my-5'>
       <h1 className="text-center">{ id ? "Edit " : "Add " } User </h1>
@@ -51,7 +82,7 @@ function Manage() {
         <div className="mt-5">
           {
             id ?
-            <button className="btn btn-info"> EDIT USER</button>
+            <button onClick={editUser} className="btn btn-info"> EDIT USER</button>
             :
             <button onClick={addUser} className="btn btn-info">ADD  USER</button>
           }
